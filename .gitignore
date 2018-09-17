@@ -1,0 +1,8 @@
+# Ignore all libs and builds
+libs/
+build/
+bin/
+*.class
+.metadata
+.recommenders
+

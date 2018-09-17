@@ -1,6 +1,0 @@
-main: com.sangodan.sangoapi.main.APIMain
-version: '1.0'
-name: SangoAPI
-database: false
-author: Sangodan
-description: SANGOAPI WOO YAH
