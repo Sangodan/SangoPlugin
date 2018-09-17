@@ -1,0 +1,24 @@
+main: com.sangodan.sangobuild.main.SangoBuild
+version: 1.0
+name: SangoBuild
+database: false
+author: Sangodan
+description: An AntiBuild plugin for my server.
+depends: [SangoAPI]
+
+permissions:
+  SangoBuild.bypass:
+    description: Allows the player to break all blocks, regardless of restrictions.
+    default: op
+  
+  SangoBuild.place:
+    description: Allows the player to place the allowed blocks.
+    default: op
+  
+  SangoBuild.break:
+    description: Allows the player to break the allowed blocks.
+    default: op
+  
+  SangoBuild.interact:
+    description: Allows the player to interact with the allowed blocks.
+    default: op

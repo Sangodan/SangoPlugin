@@ -1,0 +1,18 @@
+main: com.sangodan.sangosocial.main.SangoSocial
+version: '1.0'
+name: SangoSocial
+database: false
+author: Sangodan
+description: A plugin for parties and friends.
+depends: [SangoAPI]
+
+commands:
+  party:
+    description: Multiple different commands related to the party system.
+    aliases: p
+    usage: "Syntax error: see /party help for all available commands. "
+    
+  friend:
+    description: Commands for friends.
+    aliases: f
+    usage: "Syntax error: see /friend help for all available commands. "

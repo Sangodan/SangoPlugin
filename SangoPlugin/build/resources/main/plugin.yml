@@ -1,0 +1,118 @@
+main: com.sangodan.sangoplugin.main.SangoPlugin
+version: '1.0'
+name: SangoPlugin
+database: false
+author: Sangodan
+description: A plugin for everything I need in my server, and also a little extra.
+depends: [SangoAPI]
+
+
+commands:
+  getminigame:
+    description: Returns the minigame for the player's world.
+    aliases: gm
+  switchCheckpointClay:
+    description: Switches if Checkpoint Clay is enabled or disabled.
+    aliases: scc
+    permission: SangoPlugin.checkpointclay.switch
+    
+  getWorld:
+    description: Returns the player's current world.
+   
+  switchCheckpointWorldIndependence:
+    description: Switches if Checkpoints are world-independent.
+    aliases: scwi
+    permission: SangoPlugin.checkpointclay.world
+    
+  fillInventory:
+    description: Fills the player's inventory with the selected item.
+    aliases: [fillinv, fi]
+    usage: "Syntax error: /fillInventory [player] [itemID]"
+    permission: SangoPlugin.fillinventory
+    permission-message: You don't have <permission>
+  
+  getlife:
+    description: Returns the life cycle of that world.
+    
+  hub:
+    description: Teleports the player to hub.
+    
+  lobby:
+    description: Teleports the player to lobby.
+    
+  tp:
+    description: Teleports players.
+    usage: "Syntax error: /tp <player1> <player2>"
+    permission: SangoPlugin.tp
+    permission-message: You don't have <permission>
+    
+  moreChickens:
+    description: Edits the base amount of chickens hatched from an egg.
+    aliases: mc
+    usage: "Syntax error: /moreChickens [AMOUNT]"
+    permission: SangoPlugin.morechickens
+    permission-message: You don't have <permission>
+    
+  buttonedit:
+    description: Gives the player the editor for programmableButtons.
+    usage: "Syntax error: try /buttonedit"
+    aliases: be
+    
+  setcommand:
+    description: Sets the command for the button.
+    usage: "Syntax error: /setcommand [COMMAND]"
+    aliases: sc
+    
+  pvpaltitude:
+    description: Selects the altitude where PVP is not allowed at.
+    usage: "Syntax error: /pvpa help"
+    aliases: pvpa
+    
+  tpspleef:
+    description: Teleports to a spleef lobby, or creates one if none are available.
+    usage: "Syntax error: /tpspleef"
+  
+permissions:
+
+  SangoPlugin.pvpaltitude:
+    description: Allows the player to select the altitude which PVP is not allowed at.
+    default: op
+    
+  SangoPlugin.placecommandblocks:
+    description: Allows the player to place command blocks, even if not an OP.
+    default: op
+    
+  SangoPlugin.morechickens:
+    description: Allows to change the base amount of chickens laid from an egg.
+    default: op
+    
+  SangoPlugin.fillinventory:
+    description: Allows the player to fill another player's inventory with the specified item.
+    default: op
+  
+  SangoPlugin.inventorymove.*:
+    description: Gives the player access to move items in his inventory in said world.
+    children:
+      SangoPlugin.inventorymove.hub: true
+  
+  SangoPlugin.inventorymove.hub:
+    default: op
+    description: Allows the player to move items in the hub world.
+    
+  SangoPlugin.tp:
+    default: op
+    description: Allows teleportation.
+    
+  SangoPlugin.checkpointclay.*:
+    description: Gives access to all checkpoint clay commands.
+    children:
+      SangoPlugin.checkpointclay.switch: true
+      SangoPlugin.checkpointclay.world: true
+  
+  SangoPlugin.checkpointclay.world:
+    default: op
+    description: Allows the player to toggle between world-independence for CC.
+    
+  SangoPlugin.checkpointclay.switch:
+    default: op
+    description: Allows the player to toggle between CC being activated.
