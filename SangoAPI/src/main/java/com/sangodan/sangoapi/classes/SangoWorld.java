@@ -14,6 +14,9 @@ import org.bukkit.Sound;
 import org.bukkit.World;
 import org.bukkit.World.Spigot;
 import org.bukkit.block.Block;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Monster;
 import org.bukkit.entity.Player;
 
 import com.sangodan.sangoapi.enums.Life;
@@ -298,5 +301,19 @@ public class SangoWorld {
 
 	public SangoScoreboard getBoard() {
 		return board;
+	}
+	public void killallMobs() {
+		for(Entity e : world.getEntities()) {
+			if(e instanceof Monster) {
+				e.remove();
+			}
+		}
+	}
+	public void killall(EntityType ent) {
+		for(Entity e : world.getEntities()) {
+			if(e.getType() == ent) {
+				e.remove();
+			}
+		}
 	}
 }

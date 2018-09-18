@@ -29,6 +29,7 @@ public class OnWorldLoad implements Listener {
 		if (world.getName().contains("Spleef_")) {
 			world.setAutoSave(false);
 			world.getWorld().setDifficulty(Difficulty.PEACEFUL);
+			world.killallMobs();
 			world.getWorld().setGameRuleValue("doMobSpawning", "false");
 			world.getWorld().setDifficulty(Difficulty.NORMAL);
 			world.setMinigame(Minigame.SPLEEF);

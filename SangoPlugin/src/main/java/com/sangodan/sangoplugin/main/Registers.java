@@ -13,6 +13,7 @@ import com.sangodan.sangoplugin.command.CommandPvpAltitude;
 import com.sangodan.sangoplugin.command.CommandSwitchCheckpointClay;
 import com.sangodan.sangoplugin.command.CommandSwitchWorldIndependent;
 import com.sangodan.sangoplugin.command.CommandTp;
+import com.sangodan.sangoplugin.command.CommandTpSilent;
 import com.sangodan.sangoplugin.event.block.BlockRightClick;
 import com.sangodan.sangoplugin.event.block.OnChunkUnload;
 import com.sangodan.sangoplugin.event.block.WildSignRightClick;
@@ -58,7 +59,7 @@ public class Registers {
 		pluginMain.getCommand("hub").setExecutor(new CommandHub());
 		
 		pluginMain.getCommand("tpspleef").setExecutor(new CreateSpleefArena());
-		
+		pluginMain.getCommand("tpsilent").setExecutor(new CommandTpSilent());
 		pluginMain.getCommand("tp").setExecutor(new CommandTp());
 		pluginMain.getCommand("getminigame").setExecutor(new CommandGetMinigame());
 		pluginMain.getCommand("pvpaltitude").setExecutor(new CommandPvpAltitude());

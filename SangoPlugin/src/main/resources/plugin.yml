@@ -45,6 +45,12 @@ commands:
     usage: "Syntax error: /tp <player1> <player2>"
     permission: SangoPlugin.tp
     permission-message: You don't have <permission>
+  
+  tpsilent:
+    description: Teleports to players without alerting them.
+    usage: "Syntax error: /tpsilent <player1> <player2>"
+    permission: SangoPlugint.tpsilent
+    permission-message: You don't have <permission>
     
   moreChickens:
     description: Edits the base amount of chickens hatched from an egg.
