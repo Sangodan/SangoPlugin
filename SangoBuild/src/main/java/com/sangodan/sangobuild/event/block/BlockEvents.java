@@ -103,9 +103,6 @@ public class BlockEvents implements Listener {
 	public void onBlockClicked(PlayerInteractEvent event) {
 		SangoPlayer player = SangoPlayer.get(event.getPlayer());
 		ItemStack item = event.getItem();
-		if(player.canBuild()) {
-			return;
-		}
 		if (event.hasItem() && !metaPermCheck(player, "interact", item.getTypeId(), item.getDurability())) {
 			event.setCancelled(true);
 			return;

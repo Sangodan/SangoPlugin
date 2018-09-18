@@ -42,8 +42,11 @@ public class OnSpleefTick implements Listener {
 						if (!p.getScoreboard().equals(board.getScoreboard())) {
 							board.addPlayer(p);
 						}
-						board.setGameStart(secondsTillGameStart);
-						board.update();
+						if (ticksTillGameStart % 5 == 0) {
+							board.setGameStart(secondsTillGameStart);
+							board.update();
+						}
+
 					}
 					if (world.getPlayers().size() > 1) {
 						// Game has more than one person and is in lobby phase

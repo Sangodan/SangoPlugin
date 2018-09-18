@@ -1,0 +1,1 @@
+cmd.exe /K "cd C:\Users\User\Desktop\BuildTools Spigot\My Plugins\SangoMain && C:"

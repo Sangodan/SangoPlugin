@@ -73,6 +73,7 @@ public class OnEntityAttackEntity implements Listener {
 					}
 				} else {
 					event.setDamage(0);
+					event.setCancelled(true);
 				}
 			}
 		}
