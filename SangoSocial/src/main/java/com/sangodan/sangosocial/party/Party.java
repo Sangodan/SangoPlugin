@@ -11,7 +11,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.Server;
 import org.bukkit.entity.Player;
 
-import com.sangodan.sangoapi.classes.SangoPlayer;
+import com.sangodan.sangoapi.wrapper.SangoPlayer;
 
 public class Party {
 

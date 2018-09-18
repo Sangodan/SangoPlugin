@@ -16,10 +16,10 @@ import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import org.bukkit.metadata.MetadataValue;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import com.sangodan.sangoapi.classes.SangoPlayer;
-import com.sangodan.sangoapi.classes.SangoWorld;
 import com.sangodan.sangoapi.enums.Life;
 import com.sangodan.sangoapi.enums.Minigame;
+import com.sangodan.sangoapi.wrapper.SangoPlayer;
+import com.sangodan.sangoapi.wrapper.SangoWorld;
 import com.sangodan.sangoplugin.main.SangoPlugin;
 import com.sangodan.sangoplugin.utils.Settings;
 import com.sangodan.sangoplugin.utils.Utils;

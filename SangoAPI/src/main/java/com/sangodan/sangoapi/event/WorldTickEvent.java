@@ -7,8 +7,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
-import com.sangodan.sangoapi.classes.SangoScoreboard;
-import com.sangodan.sangoapi.classes.SangoWorld;
+import com.sangodan.sangoapi.wrapper.SangoScoreboard;
+import com.sangodan.sangoapi.wrapper.SangoWorld;
 
 public class WorldTickEvent extends Event {
 

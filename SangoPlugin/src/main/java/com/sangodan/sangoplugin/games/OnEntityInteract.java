@@ -17,7 +17,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import com.sangodan.sangoapi.classes.SangoItemStack;
+import com.sangodan.sangoapi.wrapper.SangoItemStack;
 import com.sangodan.sangoplugin.utils.Settings;
 
 import net.md_5.bungee.api.ChatColor;

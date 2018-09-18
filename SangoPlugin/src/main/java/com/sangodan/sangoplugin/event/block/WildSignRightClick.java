@@ -14,7 +14,7 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import com.sangodan.sangoapi.classes.SangoPlayer;
+import com.sangodan.sangoapi.wrapper.SangoPlayer;
 import com.sangodan.sangoplugin.main.SangoPlugin;
 import com.sangodan.sangoplugin.utils.ChunkUtils;
 

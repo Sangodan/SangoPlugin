@@ -6,7 +6,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.CreatureSpawnEvent;
 
-import com.sangodan.sangoapi.classes.SangoWorld;
+import com.sangodan.sangoapi.wrapper.SangoWorld;
 import com.sangodan.sangoplugin.utils.Settings;
 
 public class OnCreatureSpawn implements Listener {

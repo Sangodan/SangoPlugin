@@ -4,7 +4,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.world.WorldUnloadEvent;
 
-import com.sangodan.sangoapi.classes.SangoWorld;
+import com.sangodan.sangoapi.wrapper.SangoWorld;
 
 public class OnWorldUnload implements Listener {
 

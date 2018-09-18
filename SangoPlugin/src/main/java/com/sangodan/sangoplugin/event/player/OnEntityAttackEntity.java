@@ -11,8 +11,8 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import org.bukkit.util.Vector;
 
-import com.sangodan.sangoapi.classes.SangoPlayer;
-import com.sangodan.sangoapi.classes.SangoWorld;
+import com.sangodan.sangoapi.wrapper.SangoPlayer;
+import com.sangodan.sangoapi.wrapper.SangoWorld;
 import com.sangodan.sangoplugin.utils.Settings;
 
 import net.md_5.bungee.api.ChatColor;

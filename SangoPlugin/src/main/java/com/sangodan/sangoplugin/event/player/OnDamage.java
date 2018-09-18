@@ -13,9 +13,9 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 
-import com.sangodan.sangoapi.classes.SangoPlayer;
-import com.sangodan.sangoapi.classes.SangoWorld;
 import com.sangodan.sangoapi.enums.Life;
+import com.sangodan.sangoapi.wrapper.SangoPlayer;
+import com.sangodan.sangoapi.wrapper.SangoWorld;
 import com.sangodan.sangoplugin.games.GameUtils;
 import com.sangodan.sangoplugin.main.Config;
 import com.sangodan.sangoplugin.utils.Settings;

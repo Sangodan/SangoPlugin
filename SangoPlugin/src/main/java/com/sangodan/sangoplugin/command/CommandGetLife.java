@@ -5,8 +5,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import com.sangodan.sangoapi.classes.SangoWorld;
 import com.sangodan.sangoapi.enums.Life;
+import com.sangodan.sangoapi.wrapper.SangoWorld;
 
 import net.md_5.bungee.api.ChatColor;
 

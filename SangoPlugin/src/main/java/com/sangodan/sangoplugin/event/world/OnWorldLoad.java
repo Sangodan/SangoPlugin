@@ -9,9 +9,9 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.world.WorldLoadEvent;
 import org.bukkit.metadata.FixedMetadataValue;
 
-import com.sangodan.sangoapi.classes.SangoWorld;
 import com.sangodan.sangoapi.enums.Life;
 import com.sangodan.sangoapi.enums.Minigame;
+import com.sangodan.sangoapi.wrapper.SangoWorld;
 import com.sangodan.sangoplugin.main.SangoPlugin;
 import com.sangodan.sangoplugin.utils.Settings;
 

@@ -18,9 +18,9 @@ import org.bukkit.scoreboard.DisplaySlot;
 import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Scoreboard;
 
-import com.sangodan.sangoapi.classes.SangoPlayer;
-import com.sangodan.sangoapi.classes.SangoWorld;
 import com.sangodan.sangoapi.enums.Life;
+import com.sangodan.sangoapi.wrapper.SangoPlayer;
+import com.sangodan.sangoapi.wrapper.SangoWorld;
 import com.sangodan.sangoplugin.main.SangoPlugin;
 import com.sangodan.sangoplugin.utils.Settings;
 

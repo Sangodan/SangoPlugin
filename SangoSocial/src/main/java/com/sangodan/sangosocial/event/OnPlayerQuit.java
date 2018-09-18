@@ -5,7 +5,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerQuitEvent;
 
-import com.sangodan.sangoapi.classes.SangoPlayer;
+import com.sangodan.sangoapi.wrapper.SangoPlayer;
 import com.sangodan.sangosocial.party.Party;
 
 public class OnPlayerQuit implements Listener {

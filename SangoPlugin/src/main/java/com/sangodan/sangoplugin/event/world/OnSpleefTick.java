@@ -6,10 +6,10 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
-import com.sangodan.sangoapi.classes.SangoScoreboard;
-import com.sangodan.sangoapi.classes.SangoWorld;
 import com.sangodan.sangoapi.enums.Life;
 import com.sangodan.sangoapi.event.WorldTickEvent;
+import com.sangodan.sangoapi.wrapper.SangoScoreboard;
+import com.sangodan.sangoapi.wrapper.SangoWorld;
 import com.sangodan.sangoplugin.games.GameUtils;
 import com.sangodan.sangoplugin.utils.Utils;
 

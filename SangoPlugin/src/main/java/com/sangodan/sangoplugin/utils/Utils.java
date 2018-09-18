@@ -15,8 +15,8 @@ import org.bukkit.World;
 import org.bukkit.WorldCreator;
 import org.bukkit.entity.Player;
 
-import com.sangodan.sangoapi.classes.SangoWorld;
 import com.sangodan.sangoapi.event.WorldDeleteEvent;
+import com.sangodan.sangoapi.wrapper.SangoWorld;
 
 public class Utils {
 

@@ -19,8 +19,8 @@ import org.bukkit.potion.Potion;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.potion.PotionType;
 
-import com.sangodan.sangoapi.classes.SangoItemStack;
-import com.sangodan.sangoapi.classes.SangoPlayer;
+import com.sangodan.sangoapi.wrapper.SangoItemStack;
+import com.sangodan.sangoapi.wrapper.SangoPlayer;
 import com.sangodan.sangoplugin.games.GameUtils;
 import com.sangodan.sangoplugin.utils.Settings;
 

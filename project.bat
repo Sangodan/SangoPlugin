@@ -1,4 +1,3 @@
-cd C:\Users\User\Desktop\BuildTools Spigot\My Plugins\SangoMain"
 call gradlew build
 call gradlew cleanEclipse eclipse
 

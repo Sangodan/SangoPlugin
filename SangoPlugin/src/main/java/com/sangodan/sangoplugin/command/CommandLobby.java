@@ -6,9 +6,9 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import com.sangodan.sangoapi.classes.SangoPlayer;
-import com.sangodan.sangoapi.classes.SangoWorld;
 import com.sangodan.sangoapi.enums.Minigame;
+import com.sangodan.sangoapi.wrapper.SangoPlayer;
+import com.sangodan.sangoapi.wrapper.SangoWorld;
 
 public class CommandLobby implements CommandExecutor {
 

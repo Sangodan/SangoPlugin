@@ -16,8 +16,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.ProjectileLaunchEvent;
 import org.bukkit.projectiles.ProjectileSource;
 
-import com.sangodan.sangoapi.classes.SangoWorld;
 import com.sangodan.sangoapi.enums.Minigame;
+import com.sangodan.sangoapi.wrapper.SangoWorld;
 
 public class OnProjectileLaunch implements Listener {
 

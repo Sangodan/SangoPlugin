@@ -7,7 +7,7 @@ import org.bukkit.World;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import com.sangodan.sangoapi.classes.SangoWorld;
+import com.sangodan.sangoapi.wrapper.SangoWorld;
 import com.sangodan.sangoplugin.tickevent.TickHandler;
 import com.sangodan.sangoplugin.utils.Settings;
 import com.sangodan.sangoplugin.utils.Utils;
