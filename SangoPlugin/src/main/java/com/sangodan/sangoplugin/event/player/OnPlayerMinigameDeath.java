@@ -1,6 +1,5 @@
 package com.sangodan.sangoplugin.event.player;
 
-import org.bukkit.Sound;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
@@ -27,6 +26,9 @@ public class OnPlayerMinigameDeath implements Listener {
 			player.dropInventory(5);
 			player.teleport(world.getSpawnLocation(), true);
 			player.spectatorSurvival();
+		}
+		if(world.getName().equals("Survival")) {
+			
 		}
 	}
 }

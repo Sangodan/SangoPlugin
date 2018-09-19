@@ -8,6 +8,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerKickEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerTeleportEvent;
@@ -21,10 +22,10 @@ public class OnSurvivalLeave implements Listener {
 			ConfigMaker c = new ConfigMaker(p.getName(), "/survivalinv/");
 			c.set("inventory.armor", p.getInventory().getArmorContents());
 			c.set("inventory.content", p.getInventory().getContents());
-			if(loc != null) {
-				if(loc.getWorld().getName().equals("Survival")) {
-					String s = loc.getX() + "," + loc.getY() + ","
-							+ loc.getZ() + "," + loc.getYaw() + "," + loc.getPitch();
+			if (loc != null) {
+				if (loc.getWorld().getName().equals("Survival")) {
+					String s = loc.getX() + "," + loc.getY() + "," + loc.getZ() + "," + loc.getYaw() + ","
+							+ loc.getPitch();
 					c.set("world.location", s);
 				}
 			}
@@ -43,8 +44,8 @@ public class OnSurvivalLeave implements Listener {
 
 	@EventHandler(priority = EventPriority.LOWEST)
 	public void onTeleport(PlayerTeleportEvent event) {
-		if(!event.getFrom().getWorld().equals(event.getTo().getWorld())) {
-			if(event.getFrom().getWorld().getName().equals("Survival")) {
+		if (!event.getFrom().getWorld().equals(event.getTo().getWorld())) {
+			if (event.getFrom().getWorld().getName().equals("Survival")) {
 				try {
 					save(event.getPlayer(), event.getFrom().getWorld(), event.getFrom());
 				} catch (IOException e) {
@@ -58,6 +59,15 @@ public class OnSurvivalLeave implements Listener {
 	public void onDisconnect(PlayerQuitEvent event) {
 		try {
 			save(event.getPlayer(), event.getPlayer().getWorld(), event.getPlayer().getLocation());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@EventHandler(priority = EventPriority.LOWEST) 
+	public void onDie(PlayerDeathEvent event) {
+		try {
+			save(event.getEntity(), event.getEntity().getWorld(), event.getEntity().getLocation());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

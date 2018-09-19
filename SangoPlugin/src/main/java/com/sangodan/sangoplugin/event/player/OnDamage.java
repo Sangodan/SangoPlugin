@@ -75,11 +75,7 @@ public class OnDamage implements Listener {
 						for (Player p : players) {
 							GameUtils.sendDeathMessage(event.getCause(), player, p);
 						}
-						sp.teleport(world.getSpawnLocation(), true);
-						sp.spectatorSurvival();
-						world.getWorld().spigot().strikeLightningEffect(sp.getLocation(), false);
-						sp.dropInventory(5);
-						sp.regen();
+						Bukkit.getPluginManager().callEvent(new PlayerMinigameDeathEvent(sp.getPlayer()));
 
 						event.setCancelled(true);
 					}
