@@ -3,8 +3,8 @@ package com.sangodan.sangoplugin.event.player;
 import java.util.Iterator;
 import java.util.List;
 
+import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
-import org.bukkit.Sound;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
@@ -14,6 +14,7 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 
 import com.sangodan.sangoapi.enums.Life;
+import com.sangodan.sangoapi.event.PlayerMinigameDeathEvent;
 import com.sangodan.sangoapi.wrapper.SangoPlayer;
 import com.sangodan.sangoapi.wrapper.SangoWorld;
 import com.sangodan.sangoplugin.games.GameUtils;
@@ -90,7 +91,7 @@ public class OnDamage implements Listener {
 					event.setCancelled(true);
 				} else if (event.getCause() == DamageCause.ENTITY_EXPLOSION
 						|| event.getCause() == DamageCause.BLOCK_EXPLOSION) {
-
+					event.setDamage(0);
 					event.setCancelled(true);
 				} else if (event.getCause() == DamageCause.PROJECTILE) {
 					;
@@ -100,10 +101,8 @@ public class OnDamage implements Listener {
 					for (Player p : players) {
 						GameUtils.sendDeathMessage(event.getCause(), player, p);
 					}
-					world.playSound(world.getSpawnLocation(), Sound.AMBIENCE_THUNDER, 150, 1);
-					player.teleport(world.getSpawnLocation());
-					sp.setSpectator();
-					sp.regen();
+					Bukkit.getPluginManager().callEvent(new PlayerMinigameDeathEvent(player.getPlayer()));
+					
 				}
 			}
 

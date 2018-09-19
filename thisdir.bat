@@ -1,1 +1,3 @@
-cmd.exe /K "cd C:\Users\User\Desktop\BuildTools Spigot\My Plugins\SangoMain && C:"
+@echo off
+echo Opening your SangoMain directory...
+cmd.exe /K "cd ."

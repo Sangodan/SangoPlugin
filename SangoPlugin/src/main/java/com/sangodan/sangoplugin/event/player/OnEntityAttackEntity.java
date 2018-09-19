@@ -2,6 +2,7 @@ package com.sangodan.sangoplugin.event.player;
 
 import java.util.Random;
 
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
@@ -11,6 +12,7 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import org.bukkit.util.Vector;
 
+import com.sangodan.sangoapi.event.PlayerMinigameDeathEvent;
 import com.sangodan.sangoapi.wrapper.SangoPlayer;
 import com.sangodan.sangoapi.wrapper.SangoWorld;
 import com.sangodan.sangoplugin.utils.Settings;
@@ -30,29 +32,11 @@ public class OnEntityAttackEntity implements Listener {
 			SangoPlayer sDefender = SangoPlayer.get((Player) defender);
 			if (sDefender.wouldDie(event.getFinalDamage()) || sDefender.isInVoid()) {
 				if (world.getName().equals(Settings.worldPvp)) {
+					Bukkit.getPluginManager().callEvent(new PlayerMinigameDeathEvent(sDefender.getPlayer()));
 					event.setCancelled(true);
-					world.spigot().strikeLightningEffect(sDefender.getLocation(), false);
-					sDefender.regen();
-					sDefender.dropInventory(5);
-					sDefender.teleport(world.getSpawnLocation(), true);
-					sDefender.spectatorSurvival();
 					for (Player p : world.getPlayers()) {
-
-						if (event.getCause() == DamageCause.VOID) {
-							p.sendMessage(sDefender.getDisplayName() + ChatColor.GOLD + " was yeeted into the void by "
-									+ sAttacker.getDisplayName());
-						}
-						if (event.getCause() == DamageCause.LAVA || event.getCause() == DamageCause.FIRE_TICK
-								|| event.getCause() == DamageCause.FIRE) {
-							p.sendMessage(sDefender.getDisplayName() + ChatColor.GOLD + " got roasted by "
-									+ sAttacker.getDisplayName());
-						}
 						if (event.getCause() == DamageCause.ENTITY_ATTACK) {
 							p.sendMessage(sDefender.getDisplayName() + ChatColor.GOLD + " was slapped by "
-									+ sAttacker.getDisplayName());
-						}
-						if (event.getCause() == DamageCause.PROJECTILE) {
-							p.sendMessage(sDefender.getDisplayName() + ChatColor.GOLD + " was sniped by "
 									+ sAttacker.getDisplayName());
 						}
 					}
@@ -78,7 +62,7 @@ public class OnEntityAttackEntity implements Listener {
 			}
 		}
 		if(defender.getType() == EntityType.VILLAGER) {
-			attacker.sendMessage("Do not beat up lobby selectors, dude!");
+			attacker.sendMessage("Don't beat up lobby selectors, dude!");
 			event.setCancelled(true);
 		}
 	}

@@ -26,6 +26,7 @@ import com.sangodan.sangoplugin.event.player.OnInventoryChange;
 import com.sangodan.sangoplugin.event.player.OnItemRightClick;
 import com.sangodan.sangoplugin.event.player.OnJoin;
 import com.sangodan.sangoplugin.event.player.OnLoseHunger;
+import com.sangodan.sangoplugin.event.player.OnPlayerMinigameDeath;
 import com.sangodan.sangoplugin.event.player.OnPlayerTeleport;
 import com.sangodan.sangoplugin.event.player.OnRespawn;
 import com.sangodan.sangoplugin.event.player.OnSurvivalLeave;
@@ -61,6 +62,7 @@ public class Registers {
 		pluginMain.getCommand("tpspleef").setExecutor(new CreateSpleefArena());
 		pluginMain.getCommand("tpsilent").setExecutor(new CommandTpSilent());
 		pluginMain.getCommand("tp").setExecutor(new CommandTp());
+		
 		pluginMain.getCommand("getminigame").setExecutor(new CommandGetMinigame());
 		pluginMain.getCommand("pvpaltitude").setExecutor(new CommandPvpAltitude());
 	}
@@ -89,6 +91,7 @@ public class Registers {
 		pm.registerEvents(new OnProjectileLaunch(), pluginMain);
 		pm.registerEvents(new OnRespawn(), pluginMain);
 		pm.registerEvents(new OnEntityExplode(), pluginMain);
+		pm.registerEvents(new OnPlayerMinigameDeath(), pluginMain);
 		// World Events
 		pm.registerEvents(new OnWorldInit(), pluginMain);
 		pm.registerEvents(new OnWorldLoad(), pluginMain);

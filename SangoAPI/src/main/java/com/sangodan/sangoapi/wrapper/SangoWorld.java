@@ -38,7 +38,7 @@ public class SangoWorld {
 
 	private SangoScoreboard board = null;
 
-	public SangoWorld(World world) {
+	private SangoWorld(World world) {
 		APIMain.instance().getLogger().info("Made a sangoworld for " + world.getName());
 		this.world = world;
 		this.runnable = new WorldRunnable(world) {
@@ -55,30 +55,50 @@ public class SangoWorld {
 		worlds.add(this);
 	}
 
-	public SangoWorld(String worldName) {
+	private SangoWorld(String worldName) {
 		this(Bukkit.getWorld(worldName));
 	}
 
-	public SangoWorld(UUID uniqueID) {
+	private SangoWorld(UUID uniqueID) {
 		this(Bukkit.getWorld(uniqueID));
 	}
 
-	public HashSet<SangoWorld> getWorlds() {
+	public static HashSet<SangoWorld> getWorlds() {
 		return worlds;
 	}
 
+	/**
+	 * Util method to check if the world is a minigame world.
+	 * 
+	 * @return true if the world's minigame isn't Minigame.DEFAULT
+	 */
 	public boolean isMinigame() {
 		return minigame != Minigame.DEFAULT;
 	}
 
+	/**
+	 * Sets the minigame for this SangoWorld.
+	 * 
+	 * @param minigame
+	 */
 	public void setMinigame(Minigame minigame) {
 		this.minigame = minigame;
 	}
 
+	/**
+	 * Gets this world's minigame.
+	 * 
+	 * @return the Minigame the world has.
+	 */
 	public Minigame getMinigame() {
 		return minigame;
 	}
 
+	/**
+	 * Unloads the world given.
+	 * 
+	 * @param world
+	 */
 	public static void unloadWorld(World world) {
 		if (world != null) {
 			for (Player p : world.getPlayers()) {
@@ -88,10 +108,19 @@ public class SangoWorld {
 		}
 	}
 
+	/**
+	 * Util method to set if anybody has ever been on this world.
+	 * 
+	 * @param has the world been populated	 */
 	public void hasBeenPopulated(boolean b) {
 		populated = b;
 	}
 
+	/**
+	 * Util method to get the amount of players in survival, usually for Minigame uses.
+	 * 
+	 * @return the amount of players alive
+	 */
 	public int getAlivePlayers() {
 		int amount = 0;
 		for(Player p : world.getPlayers()) {
@@ -102,18 +131,38 @@ public class SangoWorld {
 		return amount;
 	}
 	
+	/**
+	 * Util method to get if anybody has ever been on this world.
+	 * 
+	 * @return has the world ever been populated
+	 */
 	public boolean hasBeenPopulated() {
 		return populated;
 	}
 
+	/**
+	 * Sets the world's current life
+	 * 
+	 * @param Life to set
+	 */
 	public void setLife(Life life) {
 		this.life = life;
 	}
 
+	/**
+	 * Gets the world's current life
+	 * 
+	 * @return The current Life for this world
+	 */
 	public Life getLife() {
 		return life;
 	}
 
+	/**
+	 * Destroys this SangoWorld.
+	 * 
+	 * NOTE: This does not affect the world the SangoWorld is attached to.
+	 */
 	public void delete() {
 		APIMain.instance().getLogger().info("Deleted a sangoworld for " + world.getName());
 		if (worlds.contains(this)) {
@@ -123,10 +172,22 @@ public class SangoWorld {
 		nullWorld();
 	}
 
+	/**
+	 * Sets the world variable for this SangoWorld to null
+	 * 
+	 */
 	public void nullWorld() {
 		this.world = null;
 	}
 
+	/**
+	 * Returns a SangoWorld for the world given.
+	 * This replaces making an instance for the SangoWorld to stop duplication.
+	 * If no SangoWorld for this world is found, it makes a new one.
+	 * 
+	 * @param World to get SangoWorld for
+	 * @return The SangoWorld for the given world
+	 */
 	public static SangoWorld get(World world) {
 		Iterator<SangoWorld> it = worlds.iterator();
 		SangoWorld sWorld = null;
@@ -145,30 +206,55 @@ public class SangoWorld {
 		return sWorld;
 	}
 
+	/**
+	 * Starts the WorldRunnable attached to this world.
+	 */
 	public void startRunnable() {
 		if (runnable != null) {
 			runnable.runTaskTimer(APIMain.instance(), 0L, 1L);
 		}
 	}
 
+	/**
+	 * Stops the WorldRunnable attached to this world.
+	 */
 	public void stopRunnable() {
 		if (runnable != null) {
 			runnable.cancel();
 		}
 	}
 
+	/**
+	 * Sets the runnable for this world to use. 
+	 * NOTE: DO NOT TOUCH UNLESS YOU KNOW WHAT YOU'RE DOING.
+	 * @param runnable
+	 */
 	public void setRunnable(WorldRunnable runnable) {
 		this.runnable = runnable;
 	}
 
+	/**
+	 * Gets the WorldRunnable attached to this world.
+	 * @return The WorldRunnable this world uses.
+	 */
 	public WorldRunnable getRunnable() {
 		return runnable;
 	}
 
+	/**
+	 * Util method to check if the world is a Spleef Minigame
+	 * @return If the world's Minigame is Minigame.SPLEEF
+	 */
 	public boolean isSpleefMinigame() {
 		return minigame == Minigame.SPLEEF;
 	}
-
+	
+	/**
+	 * Util method, removes the _0 bit of the world if it's a minigame.
+	 * E.G. ArenaSpleef_0 becomes ArenaSpleef
+	 * 
+	 * @return The formatted name of this world
+	 */
 	public String getDisplayName() {
 		if (world.getName().contains("_")) {
 			return world.getName().substring(0, world.getName().indexOf("_"));
@@ -176,18 +262,38 @@ public class SangoWorld {
 		return world.getName();
 	}
 
+	/**
+	 * Gets the {@link World} for this SangoWorld
+	 * 
+	 * @return The World
+	 */
 	public World getWorld() {
 		return this.world;
 	}
 
+	/**
+	 * Gets the {@link Chunk} at the given {@link Block}
+	 * @param The Block to get the Chunk at
+	 * @return The Chunk at the Block
+	 */
 	public Chunk getChunkAt(Block block) {
 		return world.getChunkAt(block);
 	}
 
+	/**
+	 * Gets the {@link Chunk} at the given x and z
+	 * @param The x and z to get the Chunk at
+	 * @return The Chunk at the x and z
+	 */
 	public Chunk getChunkAt(int x, int z) {
 		return world.getChunkAt(x, z);
 	}
 
+	/**
+	 * Gets the {@link Chunk} at the given {@link Location}
+	 * @param The Location to get the Chunk at
+	 * @return The Chunk at the Location
+	 */
 	public Chunk getChunkAt(Location loc) {
 		return world.getChunkAt(loc);
 	}
@@ -236,6 +342,10 @@ public class SangoWorld {
 		world.playSound(loc, sound, volume, pitch);
 	}
 
+	/**
+	 * Returns if the world has any {@link Player}s in it
+	 * @return If the world is empty
+	 */
 	public boolean isEmpty() {
 		return world.getPlayers().isEmpty();
 	}
