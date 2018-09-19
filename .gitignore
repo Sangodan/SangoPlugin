@@ -3,6 +3,7 @@ libs/
 build/
 bin/
 *.class
+.gradle
 .metadata
 .recommenders
 
